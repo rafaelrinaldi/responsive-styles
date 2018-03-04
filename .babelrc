@@ -1,0 +1,22 @@
+{
+  "presets": [
+    ["env", {
+      "modules": false,
+      "loose": true,
+      "targets": {
+        "browsers": ["last 1 version"]
+      }
+    }]
+  ],
+  "env": {
+    "test": {
+      "plugins": ["transform-es2015-modules-commonjs"]
+    },
+    "development":{
+      "plugins": ["transform-react-jsx"]
+    }
+  },
+  "plugins": [
+    "transform-object-rest-spread"
+  ]
+}

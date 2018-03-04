@@ -1,0 +1,45 @@
+{
+  "name": "responsive-styles",
+  "version": "0.1.0",
+  "description": "Use arrays as values to specify mobile-first responsive styles for CSS-in-JS projects",
+  "license": "MIT",
+  "repository": "github:rafaelrinaldi/responsive-styles",
+  "main": "dist/responsiveStyles.umd.js",
+  "jsnext:main": "dist/responsiveStyles.es.js",
+  "module": "dist/responsiveStyles.es.js",
+  "keywords": [
+    "aphrodite",
+    "css-in-js",
+    "emotion",
+    "glamor",
+    "rebass",
+    "styled-system"
+  ],
+  "scripts": {
+    "build": "rollup -c",
+    "test": "NODE_ENV=test prettier-standard index.js && jest --verbose",
+    "start": "NODE_ENV=development parcel examples/index.html -p 8000"
+  },
+  "files": [
+    "dist"
+  ],
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "jest-cli": "^22.4.2",
+    "prettier-standard": "^8.0.0",
+    "rollup": "^0.56.3",
+    "rollup-plugin-babel": "^3.0.3"
+  },
+  "optionalDependencies": {
+    "emotion": "^9.0.2",
+    "glamor": "^2.20.40",
+    "combine-same-keys": "^0.1.0",
+    "aphrodite": "^1.2.5",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
+    "babel-plugin-transform-react-jsx": "^6.24.1",
+    "parcel-bundler": "^1.6.2"
+  }
+}
