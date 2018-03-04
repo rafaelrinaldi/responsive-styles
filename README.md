@@ -7,7 +7,7 @@
 [rebass]: http://jxnblk.com/rebass
 [url]: https://rinaldi.io
 
-# Responsive Styles
+# Responsive Styles [![Build Status](https://semaphoreci.com/api/v1/rafaelrinaldi/responsive-styles/branches/master/badge.svg)](https://semaphoreci.com/rafaelrinaldi/responsive-styles)
 > Use arrays as values to specify mobile-first responsive styles for CSS-in-JS projects
 
 The main idea of this library is to provide a framework agnostic way to easily enable any property to become responsive.
