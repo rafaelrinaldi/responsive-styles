@@ -31,28 +31,27 @@ This library was tested against [Aphrodite][aphrodite], [glamor][glamor] and [em
 import React from 'react'
 import { render } from 'react-dom'
 import { StyleSheet, css } from 'aphrodite/no-important'
-import combine from 'combine-same-keys'
+import combineSameKeys from 'combine-same-keys'
 import responsiveStyles from 'responsive-styles'
 
 const breaks = [48, 64, 80]
 const r = (props, values) => responsiveStyles(props, values, breaks)
 
 const styles = StyleSheet.create({
-  fcss: {
-    ':before': {
-      ...r('content', ['"Small"', '"Medium"', '"Large"', '"Extra Large"'])
-    }
-  },
+  // A la functional CSS
+  padding: r('padding', [8, 24, 48]),
+  fontSize: r('fontSize', [16, 24, 36]),
 
-  withCombine: {
-    ...combine(
-      r('color', ['#FFF', '#005782', '#820005', '#16160B']),
-      r('backgroundColor', ['#FF0066', '#27D88E', '#FFF5C3', '#E1E1E1'])
-    )
-  }
+  // Combine multiple definitions into a single class name
+  colors: combineSameKeys(
+    r('color', ['#FFF', '#005782', '#820005', '#16160B']),
+    r('backgroundColor', ['#FF0066', '#27D88E', '#FFF5C3', '#E1E1E1'])
+  )
 })
 
-const App = () => <div className={css(styles.fcss, styles.withCombine)} />
+const className = css(styles.padding, styles.fontSize, styles.colors)
+
+const App = () => <div className={className}><h1>Aphrodite</h1></div>
 
 render(<App />, document.querySelector('[data-app]'))
 ```
@@ -64,59 +63,33 @@ render(<App />, document.querySelector('[data-app]'))
 ```js
 import React from 'react'
 import { render } from 'react-dom'
-import { css } from 'glamor'
-import combine from 'combine-same-keys'
+import { css } from 'glamor' // The API is exactly the same for emotion
+import combineSameKeys from 'combine-same-keys'
 import responsiveStyles from 'responsive-styles'
 
 const breaks = [48, 64, 80]
 const r = (props, values) => responsiveStyles(props, values, breaks)
 
-const fcss = css({
-  ':before': {
-    ...r('content', ['"Small"', '"Medium"', '"Large"', '"Extra Large"'])
-  }
+// A la functional CSS
+const padding = css({
+  ...r('padding', [8, 24, 48]),
 })
 
-const withCombine = css({
-  ...combine(
+const fontSize = css({
+  ...r('fontSize', [16, 24, 36]),
+})
+
+// Combine multiple definitions into a single class name
+const colors = css(
+  combineSameKeys(
     r('color', ['#FFF', '#005782', '#820005', '#16160B']),
     r('backgroundColor', ['#FF0066', '#27D88E', '#FFF5C3', '#E1E1E1'])
   )
-})
+)
 
-const App = () => <div className={`${fcss} ${withCombine}`} />
+const className = `${padding} ${fontSize} ${colors}`
 
-render(<App />, document.querySelector('[data-app]'))
-```
-</details>
-
-<details>
-  <summary>emotion and React</summary>
-
-```js
-import React from 'react'
-import { render } from 'react-dom'
-import { css } from 'emotion'
-import combine from 'combine-same-keys'
-import responsiveStyles from 'responsive-styles'
-
-const breaks = [48, 64, 80]
-const r = (props, values) => responsiveStyles(props, values, breaks)
-
-const fcss = css({
-  ':before': {
-    ...r('content', ['"Small"', '"Medium"', '"Large"', '"Extra Large"'])
-  }
-})
-
-const withCombine = css({
-  ...combine(
-    r('color', ['#FFF', '#005782', '#820005', '#16160B']),
-    r('backgroundColor', ['#FF0066', '#27D88E', '#FFF5C3', '#E1E1E1'])
-  )
-})
-
-const App = () => <div className={`${fcss} ${withCombine}`} />
+const App = () => <div className={className}><h1>Glamor and Emotion</h1></div>
 
 render(<App />, document.querySelector('[data-app]'))
 ```
