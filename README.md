@@ -132,3 +132,9 @@ For more examples and details about how the project works, please [check our gui
 ## License
 
 MIT © [Rafael Rinaldi][url]
+
+---
+
+<p align="center">
+  <a href="https://buymeacoff.ee/rinaldi" title="Buy me a coffee">Buy me a ☕</a>
+</p>
