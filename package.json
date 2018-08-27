@@ -1,6 +1,6 @@
 {
   "name": "responsive-styles",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Use arrays as values to specify mobile-first responsive styles for CSS-in-JS projects",
   "license": "MIT",
   "repository": "github:rafaelrinaldi/responsive-styles",
